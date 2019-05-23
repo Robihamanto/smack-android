@@ -11,6 +11,7 @@ import android.support.design.widget.NavigationView
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.Menu
+import android.view.View
 
 class MainActivity : AppCompatActivity() {
 
@@ -37,5 +38,17 @@ class MainActivity : AppCompatActivity() {
         } else {
             super.onBackPressed()
         }
+    }
+
+    fun loginButtonDidTap(view: View) {
+
+    }
+
+    fun addChannelButtonDidTap(view: View) {
+
+    }
+
+    fun sendButtonDidTap(view: View) {
+
     }
 }
