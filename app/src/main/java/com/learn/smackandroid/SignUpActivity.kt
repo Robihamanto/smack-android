@@ -1,25 +1,27 @@
 package com.learn.smackandroid
 
-import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 
-class LoginActivity : AppCompatActivity() {
+class SignUpActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.activity_sign_up)
     }
 
-    fun loginButtonDidTap(view: View) {
-        val signUpIntent = Intent(this, SignUpActivity::class.java)
-        startActivity(signUpIntent)
+
+    fun avatarImageDidTap(view: View) {
+
     }
 
     fun signUpButtonDidTap(view: View) {
 
     }
 
+    fun generateBackgroundButtonDidTap(view: View) {
+
+    }
 
 }
