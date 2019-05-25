@@ -28,7 +28,6 @@ class SignUpActivity : AppCompatActivity() {
     var userAvatar = "light0"
     var avatarColor = "[0.5, 0.5, 0.5, 1]"
 
-
     fun avatarImageDidTap(view: View) {
         val random = Random()
         val color = random.nextInt(2)
@@ -43,7 +42,6 @@ class SignUpActivity : AppCompatActivity() {
         val resId = resources.getIdentifier(userAvatar, "drawable", packageName)
         avatarImageView.setImageResource(resId)
     }
-
 
     fun generateBackgroundButtonDidTap(view: View) {
         val random = Random()
@@ -109,15 +107,13 @@ class SignUpActivity : AppCompatActivity() {
         } else {
             signUpSpinner.visibility = View.INVISIBLE
         }
-        signUpLoginButton.isEnabled = !enable
+        signUpSignUpButton.isEnabled = !enable
         generateBackgroundButton.isEnabled = !enable
         avatarImageView.isEnabled = !enable
     }
-
 
     fun errorToast() {
         Toast.makeText(this, "Something wrong, Please try again.", Toast.LENGTH_SHORT).show()
         enableSpinner(false)
     }
-
 }

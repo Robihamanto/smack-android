@@ -14,10 +14,10 @@
             android:paddingTop="@dimen/nav_header_vertical_spacing"
             app:srcCompat="@drawable/profiledefault"
             android:contentDescription="@string/nav_header_desc"
-            android:id="@+id/userImageNavHeader"
+            android:id="@+id/userNavHeaderImageView"
             android:layout_marginStart="8dp"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/loginButton"/>
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/loginNavHeaderButton"/>
 
     <TextView
             android:layout_width="wrap_content"
@@ -25,22 +25,22 @@
             android:paddingTop="@dimen/nav_header_vertical_spacing"
             android:text="Robihamanto"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:id="@+id/usernameTextViewNavHeader"
-            app:layout_constraintStart_toEndOf="@+id/userImageNavHeader"
-            android:layout_marginStart="8dp" app:layout_constraintTop_toTopOf="@+id/userImageNavHeader"
+            android:id="@+id/usernameNavHeaderTextView"
+            app:layout_constraintStart_toEndOf="@+id/userNavHeaderImageView"
+            android:layout_marginStart="8dp" app:layout_constraintTop_toTopOf="@+id/userNavHeaderImageView"
             android:textColor="@android:color/white"/>
 
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="robihamanto@icloud.com"
-            android:id="@+id/emailTextViewNavHeader"
-            app:layout_constraintStart_toStartOf="@+id/usernameTextViewNavHeader"
-            app:layout_constraintTop_toBottomOf="@+id/usernameTextViewNavHeader" android:textColor="@android:color/white"/>
+            android:id="@+id/emailNavHeaderTextView"
+            app:layout_constraintStart_toStartOf="@+id/usernameNavHeaderTextView"
+            app:layout_constraintTop_toBottomOf="@+id/usernameNavHeaderTextView" android:textColor="@android:color/white"/>
     <ImageButton
             android:layout_width="30dp"
             android:layout_height="30dp" app:srcCompat="@drawable/addchannelbutton"
-            android:id="@+id/addChannelButtonNavHeader"
+            android:id="@+id/addChannelNavHeaderButton"
             android:background="@android:color/transparent" android:scaleType="fitXY" android:padding="5dp"
             android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
@@ -49,12 +49,12 @@
             android:text="LOGIN"
             android:layout_width="wrap_content"
             android:layout_height="32dp"
-            android:id="@+id/loginButton"
+            android:id="@+id/loginNavHeaderButton"
             android:background="@android:color/transparent"
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent" android:textColor="@android:color/white"
             android:onClick="loginButtonDidTap" android:textAlignment="center"
-            app:layout_constraintStart_toStartOf="@+id/userImageNavHeader"
-            app:layout_constraintEnd_toEndOf="@+id/userImageNavHeader"/>
+            app:layout_constraintStart_toStartOf="@+id/userNavHeaderImageView"
+            app:layout_constraintEnd_toEndOf="@+id/userNavHeaderImageView"/>
 
 </android.support.constraint.ConstraintLayout>
