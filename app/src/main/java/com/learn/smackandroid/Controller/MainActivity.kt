@@ -79,6 +79,8 @@ class MainActivity : AppCompatActivity() {
 
         if (isLoggedIn) {
             UserDataService.logout()
+            val userDataChange = Intent(BROADCAST_USER_DATA_CHANGE)
+            LocalBroadcastManager.getInstance(this).sendBroadcast(userDataChange)
         } else {
             val loginIntent = Intent(this, LoginActivity::class.java)
             startActivity(loginIntent)

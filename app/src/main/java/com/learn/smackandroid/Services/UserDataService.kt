@@ -1,6 +1,10 @@
 package com.learn.smackandroid.Services
 
+import android.content.Context
+import android.content.Intent
 import android.graphics.Color
+import android.support.v4.content.LocalBroadcastManager
+import com.learn.smackandroid.Utilities.BROADCAST_USER_DATA_CHANGE
 import java.util.*
 
 object UserDataService {
@@ -48,6 +52,7 @@ object UserDataService {
         AuthService.userToken = ""
         AuthService.userEmail = ""
         AuthService.isLoggedIn = false
+
     }
 
 }
