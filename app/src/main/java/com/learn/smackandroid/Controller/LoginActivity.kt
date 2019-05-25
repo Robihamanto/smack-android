@@ -1,10 +1,12 @@
 package com.learn.smackandroid.Controller
 
+import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import com.learn.smackandroid.R
 import com.learn.smackandroid.Services.AuthService
@@ -22,7 +24,7 @@ class LoginActivity : AppCompatActivity() {
 
     fun loginButtonDidTap(view: View) {
         enableSpinner(true)
-
+        hideKeyboard()
         val email = emailLoginTextField.text.toString()
         val password = passwordLoginTextField.text.toString()
 
@@ -41,6 +43,7 @@ class LoginActivity : AppCompatActivity() {
                 }
 
             } else {
+                errorToast()
                 Log.d("LOGIN", "Login error")
             }
         }
@@ -53,7 +56,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun errorToast() {
-        Toast.makeText(this, "Something wrong, Please try again.", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Wrong email or password.", Toast.LENGTH_SHORT).show()
         enableSpinner(false)
     }
 
@@ -65,6 +68,13 @@ class LoginActivity : AppCompatActivity() {
         }
         loginButton.isEnabled = !enable
         signUpLoginButton.isEnabled = !enable
+    }
+
+    fun hideKeyboard() {
+        val inputManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        if (inputManager.isAcceptingText) {
+            inputManager.hideSoftInputFromWindow(currentFocus.windowToken, 0)
+        }
     }
 
 }
