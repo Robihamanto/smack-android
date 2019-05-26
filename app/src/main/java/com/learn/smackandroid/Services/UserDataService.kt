@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.support.v4.content.LocalBroadcastManager
+import com.learn.smackandroid.Controller.App
 import com.learn.smackandroid.Utilities.BROADCAST_USER_DATA_CHANGE
 import java.util.*
 
@@ -15,13 +16,8 @@ object UserDataService {
     var email = ""
     var name  = ""
 
-    fun getAvatarColor(): Int {
+    fun getAvatarColor(components: String): Int {
 
-        if (!avatarColor.isNotEmpty()) {
-            return 0
-        }
-
-        val components = avatarColor
         val strippedColor = components
             .replace("[", "")
             .replace("]", "")
@@ -49,10 +45,11 @@ object UserDataService {
         email = ""
         name  = ""
 
-        AuthService.userToken = ""
-        AuthService.userEmail = ""
-        AuthService.isLoggedIn = false
-
+        App.prefs.authToken = ""
+        App.prefs.userEmail = ""
+        App.prefs.isLoggedIn = false
+        MessageService.clearMessage()
+        MessageService.clearChannel()
     }
 
 }
