@@ -54,20 +54,18 @@ class MainActivity : AppCompatActivity() {
             R.string.navigation_drawer_open,
             R.string.navigation_drawer_close
         )
+
+        LocalBroadcastManager.getInstance(this).registerReceiver(userDataChangeReceiver,
+            IntentFilter(BROADCAST_USER_DATA_CHANGE)
+        )
+
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
         updateWithChannel()
         setupListView()
-        setupLogoutView()
+        setupLogout()
         setupSocket()
         checkUser()
-    }
-
-    override fun onResume() {
-        LocalBroadcastManager.getInstance(this).registerReceiver(userDataChangeReceiver,
-            IntentFilter(BROADCAST_USER_DATA_CHANGE)
-        )
-        super.onResume()
     }
 
     override fun onDestroy() {
@@ -142,6 +140,7 @@ class MainActivity : AppCompatActivity() {
 
         if (isLoggedIn) {
             UserDataService.logout()
+            setupLogout()
             val userDataChange = Intent(BROADCAST_USER_DATA_CHANGE)
             LocalBroadcastManager.getInstance(this).sendBroadcast(userDataChange)
         } else {
@@ -150,7 +149,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun setupLogoutView() {
+    fun setupLogout() {
         val isLoggedIn = App.prefs.isLoggedIn
         if (isLoggedIn == false) {
             channelAdapter.notifyDataSetChanged()
@@ -159,6 +158,7 @@ class MainActivity : AppCompatActivity() {
             userNavHeaderImageView.setBackgroundColor(0)
             emailNavHeaderTextView.text = ""
             usernameNavHeaderTextView.text = ""
+            mainChannelNameTextView.text = "Please login 😌"
         }
     }
 
